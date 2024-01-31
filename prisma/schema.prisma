@@ -1,18 +1,40 @@
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
-
 datasource db {
   provider = "sqlite"
   url      = "file:./dev.db"
 }
-
-model Funcionario {
-  id Int @id @default(autoincrement()) @unique
-  email String @unique
+model funcionario {
+  id_funcionario Int @id @default(autoincrement()) @unique
   nome String
   senha String
+  telefone Int
+  email String @unique
 }
+model item {
+  id_item Int @id @default(autoincrement()) @unique
+  nome String
+  valor Float
+  validade DateTime
+  categoria String
+}
+model mesa {
+  id_mesa Int @id @default(autoincrement()) @unique
+  pedidos pedido[]
+  numero Int
+  status String
+}
+model pedido {
+  id_pedido Int @id @default(autoincrement()) @unique
+  formaPag String
+  statusPag Boolean
+  statusPedido String
+  valorTotal Float
+  dataPedido DateTime
+  itens item[]
+  mesa mesa @relation(fields: [id_mesa], references: [id_mesa])
+}
+
