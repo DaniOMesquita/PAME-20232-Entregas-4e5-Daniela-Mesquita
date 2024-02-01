@@ -7,13 +7,7 @@ import { PrismaService } from '../prisma/prisma.service';
 export class PedidoService {
   constructor(private readonly prisma: PrismaService) {}
   create(createPedidoDto: CreatePedidoDto) {
-    const { itensPedidos, ...rest } = createPedidoDto;
-    const data = {
-      ...rest,
-      itensPedidos: {
-        create: itensPedidos,
-      },
-    };
+    let data = createPedidoDto;
     return this.prisma.pedido.create({ data });
   }
 

@@ -1,5 +1,4 @@
 export class CreatePedidoDto {
-    itensPedidos: [];
     formaPag: string;
     statusPag: string;
     statusPedido: string;
