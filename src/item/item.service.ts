@@ -11,18 +11,18 @@ export class ItemService {
   }
 
   findAll() {
-    return `This action returns all item`;
+    return this.prisma.item.findMany();
   }
 
   findOne(id_item: number) {
-    return `This action returns a #${id_item} item`;
+    return this.prisma.item.findUnique({where: {id_item}});
   }
 
   update(id_item: number, updateItemDto: UpdateItemDto) {
-    return `This action updates a #${id_item} item`;
+    return this.prisma.item.update({where: {id_item: id_item}, data: updateItemDto});
   }
 
   remove(id_item: number) {
-    return `This action removes a #${id_item} item`;
+    return this.prisma.item.delete({where: {id_item}});
   }
 }

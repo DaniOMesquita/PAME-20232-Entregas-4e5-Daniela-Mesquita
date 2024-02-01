@@ -18,17 +18,17 @@ export class FuncionarioController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.funcionarioService.findOne(+id);
+  findOne(@Param('id') id_funcionario: string) {
+    return this.funcionarioService.findOne(+id_funcionario);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateFuncionarioDto: UpdateFuncionarioDto) {
-    return this.funcionarioService.update(+id, updateFuncionarioDto);
+  update(@Param('id') id_funcionario: string, @Body() updateFuncionarioDto: UpdateFuncionarioDto) {
+    return this.funcionarioService.update(+id_funcionario, updateFuncionarioDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.funcionarioService.remove(+id);
+  remove(@Param('id') id_funcionario: string) {
+    return this.funcionarioService.remove(+id_funcionario);
   }
 }

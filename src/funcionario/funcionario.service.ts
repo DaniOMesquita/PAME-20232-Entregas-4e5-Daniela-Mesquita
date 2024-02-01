@@ -10,18 +10,18 @@ export class FuncionarioService {
     return this.prisma.funcionario.create({data: createFuncionarioDto});
   }
   findAll() {
-    return `This action returns all funcionario`;
+    return this.prisma.funcionario.findMany();
   }
 
   findOne(id_funcionario: number) {
-    return `This action returns a #${id_funcionario} funcionario`;
+    return this.prisma.funcionario.findUnique({where: {id_funcionario}});
   }
 
   update(id_funcionario: number, updateFuncionarioDto: UpdateFuncionarioDto) {
-    return `This action updates a #${id_funcionario} funcionario`;
+    return this.prisma.funcionario.update({where: {id_funcionario: id_funcionario}, data: updateFuncionarioDto}); 
   }
 
   remove(id_funcionario: number) {
-    return `This action removes a #${id_funcionario} funcionario`;
+    return this.prisma.funcionario.delete({where: {id_funcionario}});
   }
 }

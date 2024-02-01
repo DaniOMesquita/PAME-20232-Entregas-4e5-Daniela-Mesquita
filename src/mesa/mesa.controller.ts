@@ -18,17 +18,17 @@ export class MesaController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.mesaService.findOne(+id);
+  findOne(@Param('id') id_mesa: string) {
+    return this.mesaService.findOne(+id_mesa);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() updateMesaDto: UpdateMesaDto) {
-    return this.mesaService.update(+id, updateMesaDto);
+  update(@Param('id') id_mesa: string, @Body() updateMesaDto: UpdateMesaDto) {
+    return this.mesaService.update(+id_mesa, updateMesaDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.mesaService.remove(+id);
+  remove(@Param('id') id_mesa: string) {
+    return this.mesaService.remove(+id_mesa);
   }
 }
